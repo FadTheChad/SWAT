@@ -6,9 +6,9 @@ export default {
 
 	supportServer: "https://discord.gg/7syTGCkZs8",
 	minimalInvite:
-		"https://discord.com/api/oauth2/authorize?client_id=914290270508572692&permissions=292556957910&redirect_uri=https%3A%2F%2Fdiscord.gg%7syTGCkZs8&scope=applications.commands%20bot",
+		"https://discord.com/api/oauth2/authorize?client_id=914290270508572692&permissions=292556957910&scope=applications.commands%20bot",
 	recommendedInvite:
-		"https://discord.com/api/oauth2/authorize?client_id=914290270508572692&permissions=8&redirect_uri=https%3A%2F%2Fdiscord.gg%7syTGCkZs8&scope=applications.commands%20bot",
+		"https://discord.com/api/oauth2/authorize?client_id=914290270508572692&permissions=8&scope=applications.commands%20bot",
 
 	hastebin: "https://h.inv.wtf",
 

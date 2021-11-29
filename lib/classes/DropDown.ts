@@ -30,7 +30,7 @@ export default class DropDown {
 			return "This drop down can only be used in guilds!";
 		else if (this.ownerOnly && interaction.guild?.ownerId !== interaction.user.id)
 			return "This drop down can only be ran by the owner of this guild!";
-		else if (this.devOnly && !this.client.config.admins)
+		else if (this.devOnly && !this.client.config.admins.includes(interaction.user.id))
 			return "This drop down can only be ran by my developer!";
 		else if (this.permissions && !interaction.memberPermissions?.has(this.permissions))
 			return `You need ${this.permissions.length > 1 ? "" : "the"} ${this.permissions

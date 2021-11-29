@@ -34,7 +34,8 @@ export default class SlashCommand {
 			return "This command can only be used in guilds!";
 		else if (this.ownerOnly && interaction.guild?.ownerId !== interaction.user.id)
 			return "This command can only be ran by the owner of this guild!";
-		else if (this.devOnly && !this.client.config.admins)
+			// check if the admins config array contains the interaction.user.id
+		else if (this.devOnly && !this.client.config.admins.includes(interaction.user.id))
 			return "This command can only be ran by my developer!";
 		else if (this.permissions && !interaction.memberPermissions?.has(this.permissions))
 			return `You need ${this.permissions.length > 1 ? "" : "the"} ${this.permissions
