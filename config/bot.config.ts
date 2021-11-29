@@ -1,7 +1,7 @@
 import { Intents, PermissionString } from "discord.js";
 
 export default {
-	version: "1.0.0",
+	version: "0 Dev",
 	admins: ["668423998777982997"],
 
 	supportServer: "https://discord.gg/7syTGCkZs8",
