@@ -48,7 +48,7 @@ export default class Leave extends SlashCommand {
             interaction.reply("Could not find a guild with that ID.");
             return;
         }
-		// guild.leave();
+		guild.leave();
 		this.client.logger.webhookLog("guild", {
 			content: `**__Terminated a Guild (${
 				(await this.client.fetchStats()).guilds
