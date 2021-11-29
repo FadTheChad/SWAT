@@ -1,0 +1,38 @@
+{
+	"name": "swat",
+	"version": "0 Dev",
+	"description": "Discord moderation and automoderation bot.",
+	"main": "dist/src/index.js",
+	"type": "module",
+	"scripts": {
+		"build": "tsc && node .",
+		"start": "node ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Codeize/SWAT.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Codeize/SWAT/issues"
+	},
+	"homepage": "https://github.com/Codeize/SWAT#readme",
+	"dependencies": {
+		"@sentry/node": "^6.15.0",
+		"@sentry/tracing": "^6.15.0",
+		"colorette": "^2.0.16",
+		"discord.js": "^13.4.0-dev.1637237217.802a5ac",
+		"dotenv-extended": "^2.9.0",
+		"hastebin": "^0.2.1",
+		"mongodb": "^4.2.0",
+		"petitio": "^1.4.0",
+		"regexp-worker": "^1.1.1"
+	},
+	"devDependencies": {
+		"@sentry/types": "^6.15.0",
+		"@types/node": "^16.11.9",
+		"typescript": "^4.5.2"
+	}
+}
