@@ -48,7 +48,24 @@ export default class Leave extends SlashCommand {
             interaction.reply("Could not find a guild with that ID.");
             return;
         }
-		guild.leave();
+		// guild.leave();
+		this.client.logger.webhookLog("guild", {
+			content: `**__Terminated a Guild (${
+				(await this.client.fetchStats()).guilds
+			} Total)__**
+			\n**Guild Name:** \`${guild.name}\`\n**Guild ID:** \`${
+				guild.id
+			}\`
+			\n**Guild Owner:** <@${guild.ownerId}> \`[${
+				guild.ownerId
+			}]\`
+			\n**Guild Member Count:** \`${
+				guild.memberCount || 2
+			}\`
+			\n**Reason:** ${reason || "No reason provided."}
+			\n**Timestamp:** ${this.client.functions.generateTimestamp()}`,
+			username: `${this.client.user?.username} | Guild Logs`
+		});
 		return interaction.reply(
 			this.client.functions.generateSuccessMessage(
 				{
