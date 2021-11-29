@@ -42,8 +42,12 @@ export default class Leave extends SlashCommand {
 	override async run(interaction: CommandInteraction) {
         const reason = interaction.options.getString("reason");
         const guildID = interaction.options.getString("guild")
-        // convert the id to a guild we can leave
-        const guild = this.client.guilds.cache.get(guildID!);
+		let guild;
+        if(guildID == "-this") {
+			guild = interaction.guild;
+		} else {
+			guild = interaction.client.guilds.cache.get(guildID!);
+		}
         if (!guild) {
             interaction.reply("Could not find a guild with that ID.");
             return;
