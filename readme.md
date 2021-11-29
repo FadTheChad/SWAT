@@ -4,6 +4,9 @@ _cop is still in-progress! You probably shouldn't use it on serious servers just
 
 ok cop. The minimalistic auto-moderation Discord bot. :tm:
 
+# Support
+[![widget](https://invidget.switchblade.xyz/854739172580655134)](https://discord.gg/7syTGCkZs8)
+
 ## Docs
 
 The documentation is still in the process of being written :)
