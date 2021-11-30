@@ -9,6 +9,7 @@ export default class SlashCommand {
 	private readonly permissions: PermissionString[];
 	private readonly clientPermissions: PermissionString[];
 	private readonly devOnly: boolean;
+	public lockdown: boolean;
 	private readonly guildOnly: boolean;
 	private readonly ownerOnly: boolean;
 	public readonly client: BetterClient;
@@ -23,6 +24,7 @@ export default class SlashCommand {
 		);
 
 		this.devOnly = options.devOnly || false;
+		this.lockdown = options.lockdown || false;
 		this.guildOnly = options.guildOnly || false;
 		this.ownerOnly = options.ownerOnly || false;
 
@@ -37,6 +39,9 @@ export default class SlashCommand {
 			// check if the admins config array contains the interaction.user.id
 		else if (this.devOnly && !this.client.config.admins.includes(interaction.user.id))
 			return "This command can only be ran by my developer!";
+		else if (this.lockdown) {
+			return "SWAT is currently locked down. All commands are inaccessible!";
+		}
 		else if (this.permissions && !interaction.memberPermissions?.has(this.permissions))
 			return `You need ${this.permissions.length > 1 ? "" : "the"} ${this.permissions
 				.map((permission) => `**${this.client.functions.getPermissionName(permission)}**`)

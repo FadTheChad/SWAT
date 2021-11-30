@@ -13,6 +13,7 @@ export interface SlashCommandOptions {
 	permissions?: PermissionString[];
 	clientPermissions?: PermissionString[];
 	devOnly?: boolean;
+	lockdown?: boolean;
 	guildOnly?: boolean;
 	ownerOnly?: boolean;
 }
