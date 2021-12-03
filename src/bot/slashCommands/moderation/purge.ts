@@ -16,6 +16,7 @@ export default class Purge extends SlashCommand {
 			description: `Delete a large amount of messages that meet a certain criteria.`,
 			permissions: ["MANAGE_MESSAGES"],
 			clientPermissions: ["MANAGE_MESSAGES", "READ_MESSAGE_HISTORY"],
+			lockdown: false,
 			options: [
 				{
 					name: "amount",

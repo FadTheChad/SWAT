@@ -2,7 +2,7 @@ import { Intents, PermissionString } from "discord.js";
 
 export default {
 	version: "0 Dev",
-	admins: ["668423998777982997"],
+	admins: ["620690744897699841"],
 
 	supportServer: "https://discord.gg/7syTGCkZs8",
 	minimalInvite:

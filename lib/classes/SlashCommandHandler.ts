@@ -24,6 +24,7 @@ export default class SlashCommandHandler {
 							fileName
 						}`);
 						const command: SlashCommand = new commandFile.default(this.client);
+						if (process.env.STATE === "lockdown") command.lockdown = true
 						return this.client.slashCommands.set(command.name, command);
 					})
 			);

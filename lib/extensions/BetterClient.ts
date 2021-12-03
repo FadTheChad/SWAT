@@ -69,13 +69,6 @@ export default class BetterClient extends Client {
 				? `${this.config.version}-dev`
 				: this.config.version;
 
-		// lockdown all commands if env STATE is lockdown
-		if (process.env.STATE === "lockdown") {
-			this.slashCommands.forEach((command) => {
-				command.lockdown = false;
-			});
-		}
-
 		this.stats = {
 			messageCount: 0,
 			commandsRun: 0
