@@ -39,7 +39,7 @@ export default class SlashCommand {
 			// check if the admins config array contains the interaction.user.id
 		else if (this.devOnly && !this.client.config.admins.includes(interaction.user.id))
 			return "This command can only be ran by my developer!";
-		else if (this.lockdown) {
+		else if (this.lockdown && !this.client.config.admins.includes(interaction.user.id)) {
 			return "SWAT is currently locked down. All commands are inaccessible!";
 		}
 		else if (this.permissions && !interaction.memberPermissions?.has(this.permissions))

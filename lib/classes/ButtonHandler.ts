@@ -53,7 +53,7 @@ export default class ButtonHandler {
 		if (this.coolDowns.has(interaction.user.id))
 			return interaction.reply(
 				this.client.functions.generateErrorMessage({
-					title: "Command Cooldown",
+					title: "Button Cooldown",
 					description: "Please wait a second before running this button again!"
 				})
 			);
