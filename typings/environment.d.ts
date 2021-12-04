@@ -5,7 +5,9 @@ declare global {
 		interface ProcessEnv {
 			MONGO_URI: string;
 			NODE_ENV: "development" | "production" | "lockdown";
-			DISCORD_TOKEN: string;
+			PROD_TOKEN: string;
+			BETA_TOKEN: string;
+			DEV_TOKEN: string;
 			SENTRY_DSN: string;
 		}
 	}
