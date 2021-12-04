@@ -7,11 +7,20 @@ load();
 
 const _version = process.env.NODE_ENV === "development" ? `${Config.version}-dev` : Config.version;
 
+let token;
+if(process.env.NODE_ENV === "development") {
+	token = process.env.DEV_TOKEN;
+} else if (process.env.NODE_ENV === "beta") {
+	token = process.env.BETA_TOKEN;
+} else {
+	token = process.env.PROD_TOKEN;	
+}
+
 const manager = new ShardingManager("./dist/src/bot/bot.js", {
-	token: process.env.PROD_TOKEN
+	token: token,
 });
 
-Logger.info(`Starting SWAT ${_version}`);
+Logger.info(`Starting SWAT. MODE: ${process.env.NODE_ENV}`);
 
 manager.spawn({
 	timeout: -1
