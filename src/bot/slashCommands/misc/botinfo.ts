@@ -31,7 +31,7 @@ export default class botInfo extends SlashCommand {
             .addField("Discord", "https://discord.gg/7syTGCkZs8", true)
             .addField("Uptime", `${uptimeSeconds}s`, true)
             .addField("API Latency", `${apiLatency}ms`, true)
-            .addField("CPU Usage", `${roundedCpuUsage}%`, true)
+            .addField("CPU Usage", `${roundedCpuUsage}%`, true)ODc3MTQ4NjgyMDQxMDUzMjE2.YRuaXg.6LbYaUwEbdusc2JmCa3RfFTI8wE
             .addField("RAM Usage", `${roundedRamUsage}mb`, true)
             .setFooter("Made with ❤️ by Codeize#8881");
         interaction.reply({ embeds: [embed] });
