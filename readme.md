@@ -1,3 +1,4 @@
+![SWAT Banner](assets/SWAT_BANNER_1920x1080.png)
 # SWAT
 
 This is SWAT, a moderation and automoderation bot for Discord. Made for all types of server setups and made to give moderators plenty of choice when handling different moderation scenarios.
