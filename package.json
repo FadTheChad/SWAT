@@ -27,6 +27,7 @@
 		"dotenv-extended": "^2.9.0",
 		"hastebin": "^0.2.1",
 		"mongodb": "^4.2.0",
+		"mongoose": "^6.1.0",
 		"petitio": "^1.4.0",
 		"regexp-worker": "^1.1.1"
 	},
