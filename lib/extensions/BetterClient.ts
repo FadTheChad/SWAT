@@ -1,5 +1,5 @@
 import path from "path";
-import { MongoClient } from "mongodb";
+import mongoose from "mongoose";
 import Button from "../classes/Button.js";
 import { TimeoutError, RegExpWorker } from "regexp-worker";
 import DropDown from "../classes/DropDown.js";
@@ -30,7 +30,7 @@ export default class BetterClient extends Client {
 	public readonly dropDownHandler: DropDownHandler;
 	public dropDowns: Collection<string, DropDown>;
 	public events: Map<string, EventHandler>;
-	public readonly mongo: MongoClient;
+	public mongoStatus: number = 0;
 	public readonly version: string;
 	public stats: Stats;
 	public cachedStats: CachedStats;
@@ -62,8 +62,6 @@ export default class BetterClient extends Client {
 
 		this.events = new Map();
 
-		this.mongo = new MongoClient(process.env.MONGO_URI);
-
 		this.version =
 			process.env.NODE_ENV === "development"
 				? `${this.config.version}-dev`
@@ -90,7 +88,10 @@ export default class BetterClient extends Client {
 	}
 
 	override async login() {
-		await this.mongo.connect();
+		await mongoose.connect(process.env.MONGO_URI).then((data) => {
+			console.log(data)
+			this.mongoStatus = data.connection.readyState;
+		});
 		return super.login();
 	}
 

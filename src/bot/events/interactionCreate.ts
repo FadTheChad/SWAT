@@ -4,7 +4,7 @@ import EventHandler from "../../../lib/classes/EventHandler.js";
 export default class InteractionCreate extends EventHandler {
 	override async run(interaction: Interaction) {
 		// @ts-ignore
-		if (this.client.mongo.topology.s.state !== "connected")
+		if (this.client.mongoStatus === "1")
 			// @ts-ignore
 			return interaction.reply(
 				this.client.functions.generateErrorMessage(

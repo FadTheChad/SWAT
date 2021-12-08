@@ -5,7 +5,7 @@ export default class MessageCreate extends EventHandler {
 	override async run(message: Message) {
 		if (message.author.bot) return;
 		// @ts-ignore
-		else if (this.client.mongo.topology.s.state !== "connected")
+		else if (this.client.mongoStatus === "1")
 			return message.reply(
 				this.client.functions.generateErrorMessage(
 					{
