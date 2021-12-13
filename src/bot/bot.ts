@@ -1,5 +1,5 @@
-import Config from "../../config/bot.config.js";
-import BetterClient from "../../lib/extensions/BetterClient.js";
+import Config from "../../config/bot.config";
+import BetterClient from "../../lib/extensions/BetterClient";
 
 const client = new BetterClient({
 	allowedMentions: { parse: ["users"] },

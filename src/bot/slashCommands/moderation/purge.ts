@@ -7,8 +7,8 @@ import {
 	Snowflake,
 	User
 } from "discord.js";
-import SlashCommand from "../../../../lib/classes/SlashCommand.js";
-import BetterClient from "../../../../lib/extensions/BetterClient.js";
+import SlashCommand from "../../../../lib/classes/SlashCommand";
+import BetterClient from "../../../../lib/extensions/BetterClient";
 
 export default class Purge extends SlashCommand {
 	constructor(client: BetterClient) {

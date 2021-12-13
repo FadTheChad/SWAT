@@ -1,6 +1,6 @@
 import { TextCommandOptions } from "../../typings";
 import { Message, PermissionString } from "discord.js";
-import BetterClient from "../extensions/BetterClient.js";
+import BetterClient from "../extensions/BetterClient";
 
 export default class TextCommand {
 	public readonly name: string;

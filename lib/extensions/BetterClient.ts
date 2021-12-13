@@ -1,21 +1,22 @@
 import path from "path";
 import mongoose from "mongoose";
-import Button from "../classes/Button.js";
+import Button from "../classes/Button";
 import { TimeoutError, RegExpWorker } from "regexp-worker";
-import DropDown from "../classes/DropDown.js";
-import * as Logger from "../classes/Logger.js";
-import Config from "../../config/bot.config.js";
-import Functions from "../utilities/functions.js";
+import DropDown from "../classes/DropDown";
+import * as Logger from "../classes/Logger";
+import Config from "../../config/bot.config";
+import Functions from "../utilities/functions";
 import { CachedStats, Stats } from "../../typings";
-import TextCommand from "../classes/TextCommand.js";
-import EventHandler from "../classes/EventHandler.js";
-import SlashCommand from "../classes/SlashCommand.js";
-import ButtonHandler from "../classes/ButtonHandler.js";
-import DropDownHandler from "../classes/DropDownHandler.js";
+import TextCommand from "../classes/TextCommand";
+import EventHandler from "../classes/EventHandler";
+import SlashCommand from "../classes/SlashCommand";
+import ButtonHandler from "../classes/ButtonHandler";
+import DropDownHandler from "../classes/DropDownHandler";
 import { Client, ClientOptions, Collection } from "discord.js";
-import TextCommandHandler from "../classes/TextCommandHandler.js";
-import SlashCommandHandler from "../classes/SlashCommandHandler.js";
-
+import TextCommandHandler from "../classes/TextCommandHandler";
+import SlashCommandHandler from "../classes/SlashCommandHandler";
+import GuildSchema from "../models/Guild";
+import { setModLogs } from '../classes/db/modLogs'
 export default class BetterClient extends Client {
 	public usersUsingBot: Set<string>;
 	public readonly config;
@@ -31,6 +32,7 @@ export default class BetterClient extends Client {
 	public dropDowns: Collection<string, DropDown>;
 	public events: Map<string, EventHandler>;
 	public mongoStatus: number = 0;
+	public GuildSchema = GuildSchema;
 	public readonly version: string;
 	public stats: Stats;
 	public cachedStats: CachedStats;
@@ -89,7 +91,6 @@ export default class BetterClient extends Client {
 
 	override async login() {
 		await mongoose.connect(process.env.MONGO_URI).then((data) => {
-			console.log(data)
 			this.mongoStatus = data.connection.readyState;
 		});
 		return super.login();

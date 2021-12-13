@@ -1,5 +1,5 @@
 import { SlashCommandOptions } from "../../typings";
-import BetterClient from "../extensions/BetterClient.js";
+import BetterClient from "../extensions/BetterClient";
 import { ApplicationCommandOptionData, CommandInteraction, PermissionString } from "discord.js";
 
 export default class SlashCommand {

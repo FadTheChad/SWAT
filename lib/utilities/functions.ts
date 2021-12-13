@@ -1,8 +1,8 @@
 import { createPaste } from "hastebin";
 import { GeneratedMessage, GenerateTimestampOptions } from "../../typings";
-import { permissionNames } from "./permissions.js";
+import { permissionNames } from "./permissions";
 import { existsSync, mkdirSync, readdirSync } from "fs";
-import BetterClient from "../extensions/BetterClient.js";
+import BetterClient from "../extensions/BetterClient";
 import {
 	MessageActionRow,
 	MessageButton,

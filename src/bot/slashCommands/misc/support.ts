@@ -1,6 +1,6 @@
 import { CommandInteraction, Message, MessageActionRow, MessageButton } from "discord.js";
-import SlashCommand from "../../../../lib/classes/SlashCommand.js";
-import BetterClient from "../../../../lib/extensions/BetterClient.js";
+import SlashCommand from "../../../../lib/classes/SlashCommand";
+import BetterClient from "../../../../lib/extensions/BetterClient";
 
 export default class Support extends SlashCommand {
 	constructor(client: BetterClient) {

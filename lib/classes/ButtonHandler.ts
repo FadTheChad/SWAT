@@ -1,6 +1,6 @@
-import Button from "./Button.js";
+import Button from "./Button";
 import { ButtonInteraction } from "discord.js";
-import BetterClient from "../extensions/BetterClient.js";
+import BetterClient from "../extensions/BetterClient";
 
 export default class ButtonHandler {
 	private readonly client: BetterClient;

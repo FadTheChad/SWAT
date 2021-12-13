@@ -1,5 +1,5 @@
 import { Guild } from "discord.js";
-import EventHandler from "../../../lib/classes/EventHandler.js";
+import EventHandler from "../../../lib/classes/EventHandler";
 
 export default class GuildDelete extends EventHandler {
 	override async run(guild: Guild) {

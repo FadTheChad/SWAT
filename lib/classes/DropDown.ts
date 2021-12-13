@@ -1,5 +1,5 @@
 import { ButtonOptions } from "../../typings";
-import BetterClient from "../extensions/BetterClient.js";
+import BetterClient from "../extensions/BetterClient";
 import { PermissionString, SelectMenuInteraction } from "discord.js";
 
 export default class DropDown {

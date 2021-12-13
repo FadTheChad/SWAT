@@ -7,7 +7,7 @@ import {
 	bold
 } from "colorette";
 import { format } from "util";
-import init from "../utilities/sentry.js";
+import init from "../utilities/sentry";
 import { WebhookClient, WebhookMessageOptions } from "discord.js";
 
 export class Logger {

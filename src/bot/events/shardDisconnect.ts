@@ -1,5 +1,5 @@
 import { CloseEvent } from "discord.js";
-import EventHandler from "../../../lib/classes/EventHandler.js";
+import EventHandler from "../../../lib/classes/EventHandler";
 
 export default class ShardDisconnect extends EventHandler {
 	override async run(event: CloseEvent, shardId: number) {

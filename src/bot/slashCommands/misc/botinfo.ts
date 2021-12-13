@@ -1,6 +1,6 @@
 import { CommandInteraction, MessageEmbed } from "discord.js";
-import SlashCommand from "../../../../lib/classes/SlashCommand.js";
-import BetterClient from "../../../../lib/extensions/BetterClient.js";
+import SlashCommand from "../../../../lib/classes/SlashCommand";
+import BetterClient from "../../../../lib/extensions/BetterClient";
 
 export default class botInfo extends SlashCommand {
 	constructor(client: BetterClient) {

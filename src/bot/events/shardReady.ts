@@ -1,5 +1,5 @@
 import { Snowflake } from "discord.js";
-import EventHandler from "../../../lib/classes/EventHandler.js";
+import EventHandler from "../../../lib/classes/EventHandler";
 
 export default class ShardReady extends EventHandler {
 	override async run(shardId: number, unavailableGuilds: Set<Snowflake>) {

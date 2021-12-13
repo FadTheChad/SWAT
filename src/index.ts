@@ -1,7 +1,7 @@
 import { load } from "dotenv-extended";
 import { ShardingManager } from "discord.js";
-import Config from "../config/bot.config.js";
-import Logger from "../lib/classes/Logger.js";
+import Config from "../config/bot.config";
+import Logger from "../lib/classes/Logger";
 
 load();
 

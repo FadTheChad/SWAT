@@ -1,5 +1,5 @@
 import { Guild } from "discord.js";
-import EventHandler from "../../../lib/classes/EventHandler.js";
+import EventHandler from "../../../lib/classes/EventHandler";
 
 export default class GuildCreate extends EventHandler {
 	override async run(guild: Guild) {
@@ -30,6 +30,20 @@ export default class GuildCreate extends EventHandler {
 				(await this.client.fetchStats()).guilds
 			} guilds(s)!`
 		);
+		
+		const ownerId = guild.ownerId;
+		const owner = await this.client.users.fetch(ownerId);
+		await owner.send(`Thank you for adding me to your server!\n\n` + `You can find my documentation at https://docs.discord.js.org/` + `\n\n` + `If you have any questions, feel free to join the support server at https://discord.gg/2zQfqyU`)
+		this.client.GuildSchema.create({
+			_id: guild.id,
+			name: guild.name,
+			ownerId: guild.ownerId,
+		}).catch(err => {
+			this.client.logger.error(err);
+			this.client.logger.sentry.captureWithExtras(err, {
+				guild: guild
+			});
+		});
 		return this.client.logger.webhookLog("guild", {
 			content: `**__Joined a New Guild (${
 				(await this.client.fetchStats()).guilds

@@ -1,18 +1,43 @@
-import { Schema, model, Model } from 'mongoose' // typegoose would be sicker
-import IGuild from './interfaces/IGuild'
+import { getModelForClass, prop, modelOptions, Severity } from '@typegoose/typegoose'
+import { Snowflake } from 'discord.js';
 
-// _id will be treated as Guild ID
-
-const GuildSchema = new Schema({
-    _id: String,
-    blacklisted: { type: Boolean, default: false },
-    automodExcludedRole: String,
-    blacklistedWords: { 
-        type: [String], 
-        default: []
+@modelOptions({ 
+    options: {
+        allowMixed: Severity.ALLOW
     }
 })
+class GuildSchema {
+    @prop()
+    public id?: string
 
-const GuildModel: Model<IGuild> = model('guild-settings', GuildSchema)
+    @prop()
+    public blacklisted?: boolean // nice
+
+    @prop()
+    public premium?: boolean
+
+    @prop({ default: () => { return {} } })
+    public config?: {
+        language?: string,
+        adminRole?: Snowflake,
+        modRole?: Snowflake,
+        helperRole?: Snowflake,
+        mutedRole?: Snowflake,
+        modlogsChannel?: Snowflake,
+    }
+
+    @prop()
+    public modules?: {
+        antiraid?: boolean,
+        antispam?: boolean,
+        autorole?: boolean,
+        blacklist?: boolean,
+        watchdog?: boolean,
+    }
+}
+
+const GuildModel = getModelForClass(GuildSchema)
 
 export default GuildModel
+
+// helo

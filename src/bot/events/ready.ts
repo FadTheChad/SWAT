@@ -1,4 +1,4 @@
-import EventHandler from "../../../lib/classes/EventHandler.js";
+import EventHandler from "../../../lib/classes/EventHandler";
 
 export default class MessageCreate extends EventHandler {
 	override async run() {
