@@ -9,7 +9,7 @@ import {
 } from "discord.js";
 import SlashCommand from "../../../../lib/classes/SlashCommand";
 import BetterClient from "../../../../lib/extensions/BetterClient";
-import { setModLogs } from "../../../../lib/classes/db/modLogs";
+import { setModLogs } from "../../../../lib/classes/db/modLogsChannel";
 
 export default class setModLogsCmd extends SlashCommand {
 	constructor(client: BetterClient) {
