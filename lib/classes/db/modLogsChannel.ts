@@ -1,10 +1,9 @@
-import GuildSchema from '../../models/Guild'
+import GuildModel, { BaseGuildSchema } from '../../models/Guild'
 import { Snowflake } from 'discord.js'
-import { Document } from 'mongoose'
-import { BeAnObject, IObjectWithTypegooseFunction } from '@typegoose/typegoose/lib/types'
+import { DocumentType } from '@typegoose/typegoose'
 
 export const setModLogs = async (guildId: Snowflake, modLogsID: Snowflake) => {
-    let data = await GuildSchema.findOne({ id: guildId })
+    let data: DocumentType<BaseGuildSchema> | null = await GuildModel.findOne({ id: guildId })
 
     if (data) {
         data.config!.modlogsChannel = modLogsID
@@ -12,7 +11,7 @@ export const setModLogs = async (guildId: Snowflake, modLogsID: Snowflake) => {
         await data.save()
         console.log(data)
     } else {
-        data = new GuildSchema ({
+        data = new GuildModel ({
             id: guildId,
             config: {
                 modlogsChannel: modLogsID
@@ -23,7 +22,7 @@ export const setModLogs = async (guildId: Snowflake, modLogsID: Snowflake) => {
 }
 
 export const getModLogs = async (guildId: Snowflake) => {
-    const result = await GuildSchema.findOne({ id: guildId})
+    const result = await GuildModel.findOne({ id: guildId})
 
     return result?.config?.modlogsChannel
 }
