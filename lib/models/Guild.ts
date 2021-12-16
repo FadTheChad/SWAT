@@ -6,7 +6,7 @@ import { Snowflake } from 'discord.js';
         allowMixed: Severity.ALLOW
     }
 })
-class GuildSchema {
+export class BaseGuildSchema {
     @prop()
     public id?: string
 
@@ -36,7 +36,7 @@ class GuildSchema {
     }
 }
 
-const GuildModel = getModelForClass(GuildSchema)
+const GuildModel = getModelForClass(BaseGuildSchema)
 
 export default GuildModel
 
