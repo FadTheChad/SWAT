@@ -16,7 +16,7 @@ import { Client, ClientOptions, Collection } from "discord.js";
 import TextCommandHandler from "../classes/TextCommandHandler";
 import SlashCommandHandler from "../classes/SlashCommandHandler";
 import GuildSchema from "../models/Guild";
-import { setModLogs } from '../classes/db/modLogs'
+import { setModLogs } from '../classes/db/modLogsChannel'
 export default class BetterClient extends Client {
 	public usersUsingBot: Set<string>;
 	public readonly config;
