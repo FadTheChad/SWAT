@@ -9,6 +9,7 @@ import {
 } from "discord.js";
 import SlashCommand from "../../../../lib/classes/SlashCommand";
 import BetterClient from "../../../../lib/extensions/BetterClient";
+import ModLog from "../../../../lib/classes/db/ModLog";
 
 export default class setStatus extends SlashCommand {
 	constructor(client: BetterClient) {
@@ -42,6 +43,7 @@ export default class setStatus extends SlashCommand {
 	override async run(interaction: CommandInteraction) {
         const reason = interaction.options.getString("reason");
         const status = interaction.options.getString("status")
+		
 		// set bots status
         this.client?.user?.setPresence({
             status: "online",
